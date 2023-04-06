@@ -1,13 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './home.css';
 
 function Home() {
   return (
-    <div className="home">
+    <section className="home">
+      <h2>Homepage</h2>
       <p>
-        Homepage
+        This is the homepage!
       </p>
-    </div>
+      <p>
+        <Link to="/dashboard">To the dasboard</Link>
+      </p>
+    </section>
   );
 }
 

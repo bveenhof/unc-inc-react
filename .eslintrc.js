@@ -22,6 +22,10 @@ module.exports = {
         "@typescript-eslint"
     ],
     "rules": {
-        'linebreak-style': 0
+        'linebreak-style': 0,
+        "no-unused-vars": "off",
+        "no-unused-expressions": "off",
+        "@typescript-eslint/no-unused-vars": "off",
+        "@typescript-eslint/no-unused-expressions": "off",
     }
 };
