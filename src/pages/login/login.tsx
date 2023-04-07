@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
 import { DashboardContext } from '../../context/dashboardProvider';
@@ -16,6 +16,7 @@ function Login() {
       localStorage.setItem('username', `${username}`);
       setIsLoggedIn && setIsLoggedIn(true);
 
+      /* ToDo: Currently hardcoded. Make this more dynamic (rturn to previous page, instead of hardcoding dashboard) */
       navigate('/dashboard');
     } else {
       setError('Incorrect username and/or password');
