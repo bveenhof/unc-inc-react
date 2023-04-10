@@ -15,7 +15,7 @@ function Navigation() {
   return (
     <div className="navigation">
       <Link to="/home">Home</Link>
-      <Link to="/dashboard">Dasboard</Link>
+      <Link to="/dashboard">Dashboard</Link>
       {savedItem || isLoggedIn ? <button type="button" onClick={handleLogout}>Logout</button> : <Link to="/login">Login</Link>}
     </div>
   );

@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 
 export type DashboardContextType = {
   isLoggedIn: boolean;
@@ -19,6 +19,14 @@ function DashboardProvider({ children }: DashboardProviderProps) {
     isLoggedIn,
     setIsLoggedIn,
   }), [isLoggedIn, setIsLoggedIn]);
+
+  useEffect(() => {
+    const hasAuthentication = localStorage.getItem('username');
+
+    if (hasAuthentication) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   return (
     <DashboardContext.Provider

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './login.css';
 import { DashboardContext } from '../../context/dashboardProvider';
@@ -9,11 +9,18 @@ function Login() {
   const [error, setError] = useState('');
 
   const navigate = useNavigate();
-  const { setIsLoggedIn } = useContext(DashboardContext);
+  const { setIsLoggedIn, isLoggedIn } = useContext(DashboardContext);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/dashboard');
+    }
+  }, [isLoggedIn]);
 
   const handleLogin = () => {
     if (username === 'uncinc' && password === 'letmein') {
       localStorage.setItem('username', `${username}`);
+
       setIsLoggedIn && setIsLoggedIn(true);
 
       /* ToDo: Currently hardcoded. Make this more dynamic (rturn to previous page, instead of hardcoding dashboard) */
